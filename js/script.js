@@ -14,7 +14,8 @@ var app = new Vue({
       Caloriemeno:null,
       Calorieaumento:null,
       Bmi:null,
-      PesoIdeale:null
+      PesoIdeale:null,
+      pesooo:null
 
    /* percCarb:(0.35*Calorie),
       percGrassi:(0.25*Calorie),
@@ -25,6 +26,7 @@ var app = new Vue({
 
     methods:{
       Prova:function(){
+
 
         if (this.Sesso == 'Uomo') {
           this.Calorie = (5 + (this.Peso * 10) + (this.Altezza * 6.25) - (this.Eta * 5));
@@ -50,6 +52,7 @@ var app = new Vue({
         this.Bmi = this.Peso / ((this.Altezza /100) * (this.Altezza/100));
          var pesodaperdere = this.PesoIdeale - this.Peso;
          var pesodaaumentare = this.Peso - this.PesoIdeale;
+         // var pesooo = this.Peso + this.PesoIdeale;
 
         if (this.PesoIdeale < this.Peso) {
             document.getElementById('pesodasistemare').innerHTML= 'perdere' +  pesodaperdere;
@@ -68,17 +71,26 @@ var app = new Vue({
         var percProte = 0.4 * this.Calorie;
           document.getElementById('percProte').innerHTML=percProte;
 // grafico mesi
-          var arraydate = [];
+
           var currentDate = new Date();
-          var currentMonth = currentDate.getMonth();
-          const monthName = currentMonth.toLocaleString("default", {month: "long"});
-          console.log(monthName);
-          var monthNames = 0;
-          for (var i = monthName; i < 12; i++) {
-             monthNames = i + 1;
-            arraydate.push(monthNames);
-          }
-          console.log(arraydate);
+          var currentMonth1 = currentDate.getMonth()+1;
+          var currentMonth2 = currentDate.getMonth()+2;
+          var currentMonth3 = currentDate.getMonth()+3;
+          var currentMonth4 = currentDate.getMonth()+4;
+          var currentMonth5 = currentDate.getMonth()+5;
+          var currentMonth6 = currentDate.getMonth()+6;
+          var currentMonth7 = currentDate.getMonth()+7;
+
+
+          const monthName1 = currentMonth1.toLocaleString("default", {month: "long"});
+          const monthName2 = currentMonth2.toLocaleString("default", {month: "long"});
+          const monthName3 = currentMonth3.toLocaleString("default", {month: "long"});
+          const monthName4 = currentMonth4.toLocaleString("default", {month: "long"});
+          const monthName5 = currentMonth5.toLocaleString("default", {month: "long"});
+          const monthName6 = currentMonth6.toLocaleString("default", {month: "long"});
+          const monthName7 = currentMonth7.toLocaleString("default", {month: "long"});
+
+
 
 
 
@@ -87,10 +99,10 @@ var app = new Vue({
           var myChart = new Chart(ctx, {
               type: 'line',
               data: {
-                  labels: [monthName, 'blu', 'Yellow', 'Green', 'Purple', 'Orange'],
+                  labels: [monthName1, monthName2, monthName3, monthName4, monthName5, monthName6, monthName7],
                   datasets: [{
                       label: '# of Votes',
-                      data: [this.Peso, this.PesoIdeale],
+                      data: [this.Peso,pesooo, this.PesoIdeale],
                       backgroundColor: [
                           'rgba(255, 99, 132, 0.2)',
                           'rgba(54, 162, 235, 0.2)',
