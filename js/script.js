@@ -52,7 +52,11 @@ var app = new Vue({
         this.Bmi = this.Peso / ((this.Altezza /100) * (this.Altezza/100));
          var pesodaperdere = this.PesoIdeale - this.Peso;
          var pesodaaumentare = this.Peso - this.PesoIdeale;
-         // var pesooo = this.Peso + this.PesoIdeale;
+         var pesooo2 = (this.PesoIdeale * 2);
+
+         var pesooo = (pesodaaumentare + pesooo2)/2;
+
+
 
         if (this.PesoIdeale < this.Peso) {
             document.getElementById('pesodasistemare').innerHTML= 'perdere' +  pesodaperdere;
