@@ -49,13 +49,7 @@ var app = new Vue({
             document.getElementById('pesoIdeale').innerHTML=pesoIdeale;
       }
 
-      if (this.Sesso == 'Uomo') {
-        this.sfondo ='sfondo1';
-      }else if(this.Sesso == 'Donna') {
-        this.sfondo ='sfondo2';
-      }else {
-        this.sfondo ='sfondo1';
-      }
+
 
       if (this.selected == 'poca') {
         this.Calorie = this.Calorie * 0.9  ;
@@ -353,7 +347,21 @@ var app = new Vue({
         }
       });
 
-    }
+    },
+    sfondoUomo:function(){
+      if (this.sfondo == 'sfondo1') {
+        this.sfondo ='sfondo1';
+      }else {
+        this.sfondo ='sfondo2';
+      }
+    },
+    sfondoDonna:function(){
+      if (this.sfondo == 'sfondo1') {
+        this.sfondo ='sfondo2';
+      }else {
+        this.sfondo ='sfondo1';
+      }
+    },
 
     // outer grafico ciambella
 

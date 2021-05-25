@@ -39,8 +39,8 @@
           <div class="select">
             <select name="sexo"  v-model="Sesso">
               <option  value="">Bambino 1-5 anni</option>
-              <option value="uomo">Uomo</option>
-              <option value="donna">Donna</option>
+              <option @click="sfondoUomo" value="uomo">Uomo</option>
+              <option  @click="sfondoDonna" value="donna">Donna</option>
             </select>
           </div>
           <div class="input-peso">
