@@ -30,21 +30,27 @@ var app = new Vue({
 
         if (this.Sesso == 'Uomo') {
           this.Calorie = (5 + (this.Peso * 10) + (this.Altezza * 6.25) - (this.Eta * 5));
+          this.Calorie = this.Calorie.toFixed(2);
             this.PesoIdeale = ((this.Altezza /100) * (this.Altezza/100)) * 22.1;
         } else if (this.Sesso == 'Donna') {
           this.Calorie = (-161 + (this.Peso * 10) + (this.Altezza * 6.25) - (this.Eta * 5));
             this.PesoIdeale = ((this.Altezza /100) * (this.Altezza/100)) * 20.6;
+            this.Calorie = this.Calorie.toFixed(2);
         } else {
           this.Calorie = 22.1 + (this.Peso  * 31.05 ) + (this.Altezza  * 1.16) ;
             this.PesoIdeale = ((this.Altezza /100) * (this.Altezza/100)) * 20.6;
+            this.Calorie = this.Calorie.toFixed(2);
         }
 
         if (this.selected == 'poca') {
         this.Calorie = this.Calorie * 0.9  ;
+        this.Calorie = this.Calorie.toFixed(2);
         } else if (this.selected == 'media') {
         this.Calorie = this.Calorie ;
+        this.Calorie = this.Calorie.toFixed(2);
         }  else  {
         this.Calorie = this.Calorie * 1.1 ;
+        this.Calorie = this.Calorie.toFixed(2);
         }
 
 
@@ -60,15 +66,16 @@ var app = new Vue({
 
 
         if (this.PesoIdeale < this.Peso) {
-            document.getElementById('pesodasistemare').innerHTML= 'perdere' +  pesodaaumentare;
+            document.getElementById('pesodasistemare').innerHTML= 'perdere' +  pesodaaumentare.toFixed(2);
         }else if(this.PesoIdeale == this.Peso){
             document.getElementById('pesodasistemare').innerHTML= 'seguire una diete che continui con un apporto calorico e attivita fisica uguale a quella che stai gia attuando,ottimo';
         }else {
-          document.getElementById('pesodasistemare').innerHTML= 'aumentare  di' + (-pesodaaumentare);
+          document.getElementById('pesodasistemare').innerHTML= 'aumentare  di' + (-pesodaaumentare.toFixed(2));
         }
 
 
          var x = pesodaaumentare; x = Math.abs(x);
+           var x  =  x.toFixed(2);
 
 
         if (x < 5) {
@@ -86,6 +93,7 @@ var app = new Vue({
         }
 
           var pesorazionatoingiorni = x/xy;
+            var pesorazionatoingiorni  =  pesorazionatoingiorni.toFixed(2);
           document.getElementById('pesorazionatoingiorni').innerHTML=pesorazionatoingiorni;
           var kcalingiorni = pesorazionatoingiorni * 250 ;
           this.Caloriemeno = this.Calorie - kcalingiorni;
