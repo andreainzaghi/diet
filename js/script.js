@@ -13,7 +13,7 @@ var app = new Vue({
     selected: null,
     Caloriemeno:null,
     Calorieaumento:null,
-    Bmi:null,
+  
     PesoIdeale:null,
     pesooo:null
 
@@ -54,8 +54,9 @@ var app = new Vue({
       }
 
 
-      this.Bmi = this.Peso / ((this.Altezza /100) * (this.Altezza/100));
-      this.Bmi =   this.Bmi.toFixed(2);
+       var bmi = this.Peso / ((this.Altezza /100) * (this.Altezza/100));
+     var bmi =   bmi.toFixed(2);
+     document.getElementById('bmi').innerHTML=bmi;
       var pesodaaumentare = this.Peso - this.PesoIdeale;
       var pesooo2 = (this.PesoIdeale * 2);
 
@@ -95,7 +96,7 @@ var app = new Vue({
       this.Calorieaumento = (this.Calorie + kcalingiorni);
 
       if (this.PesoIdeale < this.Peso) {
-        document.getElementById('pesodasistemare').innerHTML= 'perdere ' +  pesodaaumentare.toFixed(2)+ ' kg con un indice calorico pari a'+ this.Caloriemeno.toFixed(2) +' kcal per perdere'  +  pesodaaumentare.toFixed(2)+ ' kg in '+ xy + ' mesi';
+        document.getElementById('pesodasistemare').innerHTML= 'perdere ' +  pesodaaumentare.toFixed(2)+ ' kg con un indice calorico pari a'+ this.Caloriemeno +' kcal per perdere'  +  pesodaaumentare.toFixed(2)+ ' kg in '+ xy + ' mesi';
         var percCarb = 0.35 * this.Caloriemeno;
         var percCarb =  percCarb.toFixed(2);
         document.getElementById('percCarb').innerHTML=percCarb;

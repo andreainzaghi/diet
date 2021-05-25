@@ -12,8 +12,8 @@
   <title>Laravel</title>
   <style media="screen">
   .canvy{
-    width: 400px;
-    height:400px;
+    width: 300px;
+    height:300px;
   }
   .containerpie{
     width: 400px;
@@ -84,13 +84,17 @@
 
 
         </div>
+        </div>
+        <div class="secondsection">
+
+
         <div class="totkcal" >
           <div class="tot-chilopage">
             <!-- <h2>Chilocalorie Totali perdere peso:{{Caloriemeno}}</h2>
             <h2>Chilocalorie Totali mantenere peso:{{Calorie}}</h2>
             <h2>Chilocalorie Totali aumentare massa:{{Calorieaumento}}</h2> -->
-            <h2>BMI(Indice massa corporea):{{Bmi}} %</h2>
-            <h2>Il tuo peso ideale e':{{PesoIdeale}} kg </h2>
+            <h2>BMI(Indice massa corporea):<span id="bmi"></span> %</h2>
+            <h2>Il tuo peso ideale e': {{PesoIdeale}} kg </h2>
             <h2> secondo i dati che ci hai fornito ,ti consigliamo di <span id="pesodasistemare"></span> </h2>
             <p><span id="percCarb"></span> Kcal =  Carboidrati</p>
             <p><span id="percGrassi"></span> Kcal =  Grassi</p>
@@ -98,7 +102,8 @@
           </div>
         </div>
       </section>
-    </div>
+<div class="diagrammi">
+
     <div class="canvy">
       <canvas id="myChart" width="100px" height="100px"></canvas>
       <p id ="pesocheaumenta"></p>
@@ -108,6 +113,10 @@
     <div class="containerpie">
       <canvas id="myChart1"></canvas>
     </div>
+
+  </div>
+
+      </div>
 
   </main>
 
