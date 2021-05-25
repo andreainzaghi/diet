@@ -120,7 +120,7 @@ var app = new Vue({
         var percProte =  percProte.toFixed(2);
         document.getElementById('percProte').innerHTML=percProte;
       }else {
-        document.getElementById('pesodasistemare').innerHTML= 'aumentare  di ' + (-pesodaaumentare.toFixed(2))+ ' kg  con  un indice calorico pari a'+ this.Calorieaumento.toFixed(2)+' kcal per perdere'  +   (-pesodaaumentare.toFixed(2))+ ' kg in '+ xy + ' mesi' ;
+        document.getElementById('pesodasistemare').innerHTML= 'aumentare  di ' + (-pesodaaumentare.toFixed(2))+ ' kg  con  un indice calorico pari a'+ this.Calorieaumento+' kcal per perdere'  +   (-pesodaaumentare.toFixed(2))+ ' kg in '+ xy + ' mesi' ;
         var percCarb = 0.35 * this.Calorieaumento;
         var percCarb =  percCarb.toFixed(2);
         document.getElementById('percCarb').innerHTML=percCarb;

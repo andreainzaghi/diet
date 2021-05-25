@@ -1,0 +1,43 @@
+*{
+  margin:0;
+  padding:0,inherit;
+  box-sizing: border-box;
+}
+
+
+header {
+  height: 100px;
+  background-color: #26b30e;
+  width: 100%;
+}
+header img {
+  width: 100px;
+  position: relative;
+  top: 40px;
+  left: calc(50% - 50px);
+}
+.input-generalita{
+  width:33%;
+  height: calc( 100vh - 100px);
+  padding:20px;
+}
+input{
+  width:350px;
+  height:40px;
+  font-size: 24px;
+  padding:10px;
+  margin:10px;
+  border: none;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+select, button{
+  width:350px;
+  height:40px;
+  font-size: 24px;
+  padding:10px;
+  margin:10px;
+  border: none;
+  border: 1px solid black;
+  border-radius: 10px;
+}
