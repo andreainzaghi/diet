@@ -8,7 +8,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@3.2.1/dist/chart.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Source+Sans+Pro&display=swap" rel="stylesheet">
   <title>Laravel</title>
   <style media="screen">
   .canvy{
@@ -16,8 +18,8 @@
     height:300px;
   }
   .containerpie{
-    width: 400px;
-    height:400px;
+    width: 350px;
+    height:350px;
   }
   </style>
   <!-- Fonts -->
@@ -28,14 +30,11 @@
 </head>
 <body>
   <header>
-   <img src="img/llogoo.png" alt="">
+    <img src="img/llogoo.png" alt="">
   </header>
   <main>
-
-    <div class="input" id="app">
-
-      <section>
-
+    <div class="input" id="app" :class="sfondo">
+        <!-- input -->
         <div class="input-generalita">
           <div class="select">
             <select name="sexo"  v-model="Sesso">
@@ -47,79 +46,58 @@
           <div class="input-peso">
             <input type="text" placeholder="Peso in Kg"v-model="Peso">
           </div>
-
           <div class="input-altezza">
             <input type="text"placeholder="Altezza in cm"v-model="Altezza">
           </div>
-
           <div class="input-eta">
             <input type="text"placeholder="Eta'"v-model="Eta">
           </div>
           <select v-model="selected">
-
             <option>poca</option>
             <option>media</option>
             <option>alta</option>
           </select>
-
-
           <div class="button-1">
             <button @click="Prova">
               calcola fabbisogno kcal
-              <!-- <a href="{{ url('/calcolo-chilocalorie') }}">Scopri la tua dieta</a> -->
             </button>
-
-
           </div>
           <div class="button-2">
             <button @click="Prova1">
               calcola fabbisogno kcal
-              <!-- <a href="{{ url('/calcolo-chilocalorie') }}">Scopri la tua dieta</a> -->
             </button>
-
-
           </div>
-
-
-
-
         </div>
-        </div>
-        <div class="secondsection">
-
-
+      </div>
+      <!-- fine input -->
+      <!-- inizio sezione dati -->
+      <div class="secondsection">
         <div class="totkcal" >
           <div class="tot-chilopage">
-            <!-- <h2>Chilocalorie Totali perdere peso:{{Caloriemeno}}</h2>
-            <h2>Chilocalorie Totali mantenere peso:{{Calorie}}</h2>
-            <h2>Chilocalorie Totali aumentare massa:{{Calorieaumento}}</h2> -->
-            <h2>BMI(Indice massa corporea):<span id="bmi"></span> %</h2>
-            <h2>Il tuo peso ideale e': <span id="pesoIdeale"></span> kg </h2>
-            <h2> secondo i dati che ci hai fornito ,ti consigliamo di <span id="pesodasistemare"></span> </h2>
-            <p><span id="percCarb"></span> Kcal =  Carboidrati</p>
-            <p><span id="percGrassi"></span> Kcal =  Grassi</p>
-            <p><span id="percProte"></span> Kcal =  Proteine</p>
+            <p>BMI(Indice massa corporea):<span id="bmi"></span> %</p>
+            <p>Il tuo peso ideale e': <span id="pesoIdeale"></span> kg </p>
+            <p> secondo i dati che ci hai fornito ,ti consigliamo di <span id="pesodasistemare"></span> </p>
+
           </div>
         </div>
-      </section>
-<div class="diagrammi">
+      <!-- diagrammi -->
+      <div class="diagrammi">
 
-    <div class="canvy">
-      <canvas id="myChart" width="100px" height="100px"></canvas>
-      <p id ="pesocheaumenta"></p>
-
-      <span><span id ="pesorazionatoingiorni"></span>kg/mese</span>
-    </div>
-    <div class="containerpie">
-      <canvas id="myChart1"></canvas>
-    </div>
-
-  </div>
-
+        <div class="canvy">
+          <canvas id="myChart" width="100px" height="100px"></canvas>
+          <p id ="pesocheaumenta"></p>
+          <span><span id ="pesorazionatoingiorni"></span>kg/mese</span>
+        </div>
+        <div class="containerpie">
+          <canvas id="myChart1"></canvas>
+          <p><span id="percCarb"></span> Kcal =  Carboidrati</p>
+          <p><span id="percGrassi"></span> Kcal =  Grassi</p>
+          <p><span id="percProte"></span> Kcal =  Proteine</p>
+        </div>
       </div>
-
+      <!-- diagrammi fine -->
+    </div>
   </main>
-
   <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
   <script src="js/script.js"></script>
   <script src="js/script2.js"></script>

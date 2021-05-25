@@ -13,7 +13,7 @@ var app = new Vue({
     selected: null,
     Caloriemeno:null,
     Calorieaumento:null,
-
+    sfondo:'sfondo1',
     PesoIdeale:null,
     pesooo:null
 
@@ -33,18 +33,28 @@ var app = new Vue({
         this.Calorie = this.Calorie.toFixed(2);
         var pesoIdeale = ((this.Altezza /100) * (this.Altezza/100)) * 22.1;
         document.getElementById('pesoIdeale').innerHTML=pesoIdeale;
+
       } else if (this.Sesso == 'Donna') {
         this.Calorie = (-161 + (this.Peso * 10) + (this.Altezza * 6.25) - (this.Eta * 5));
 
         this.Calorie = this.Calorie.toFixed(2);
           var pesoIdeale = ((this.Altezza /100) * (this.Altezza/100)) * 20.6;
             document.getElementById('pesoIdeale').innerHTML=pesoIdeale;
+            this.sfondo ='sfondo2';
       } else {
         this.Calorie = 22.1 + (this.Peso  * 31.05 ) + (this.Altezza  * 1.16) ;
 
         this.Calorie = this.Calorie.toFixed(2);
           var pesoIdeale = ((this.Altezza /100) * (this.Altezza/100)) * 20.6;
             document.getElementById('pesoIdeale').innerHTML=pesoIdeale;
+      }
+
+      if (this.Sesso == 'Uomo') {
+        this.sfondo ='sfondo1';
+      }else if(this.Sesso == 'Donna') {
+        this.sfondo ='sfondo2';
+      }else {
+        this.sfondo ='sfondo1';
       }
 
       if (this.selected == 'poca') {
