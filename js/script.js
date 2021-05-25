@@ -85,11 +85,11 @@ var app = new Vue({
           xy=18;
         }
 
-         // var pesorazionatoingiorni = x/xy;
-         // document.getElementById('pesorazionatoingiorni').innerHTML=pesorazionatoingiorni;
-         // var kcalingiorni = pesorazionatoingiorni * 250 ;
-         // this.Caloriemeno = this.Calorie - kcalingiorni;
-         // this.Calorieaumento = this.Calorie + kcalingiorni;
+          var pesorazionatoingiorni = x/xy;
+          document.getElementById('pesorazionatoingiorni').innerHTML=pesorazionatoingiorni;
+          var kcalingiorni = pesorazionatoingiorni * 250 ;
+          this.Caloriemeno = this.Calorie - kcalingiorni;
+         this.Calorieaumento = this.Calorie + kcalingiorni;
 
 
 
