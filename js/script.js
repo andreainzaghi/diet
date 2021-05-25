@@ -13,7 +13,7 @@ var app = new Vue({
     selected: null,
     Caloriemeno:null,
     Calorieaumento:null,
-  
+
     PesoIdeale:null,
     pesooo:null
 
@@ -31,15 +31,20 @@ var app = new Vue({
       if (this.Sesso == 'Uomo') {
         this.Calorie = (5 + (this.Peso * 10) + (this.Altezza * 6.25) - (this.Eta * 5));
         this.Calorie = this.Calorie.toFixed(2);
-        this.PesoIdeale = ((this.Altezza /100) * (this.Altezza/100)) * 22.1;
+        var pesoIdeale = ((this.Altezza /100) * (this.Altezza/100)) * 22.1;
+        document.getElementById('pesoIdeale').innerHTML=pesoIdeale;
       } else if (this.Sesso == 'Donna') {
         this.Calorie = (-161 + (this.Peso * 10) + (this.Altezza * 6.25) - (this.Eta * 5));
-        this.PesoIdeale = ((this.Altezza /100) * (this.Altezza/100)) * 20.6;
+
         this.Calorie = this.Calorie.toFixed(2);
+          var pesoIdeale = ((this.Altezza /100) * (this.Altezza/100)) * 20.6;
+            document.getElementById('pesoIdeale').innerHTML=pesoIdeale;
       } else {
         this.Calorie = 22.1 + (this.Peso  * 31.05 ) + (this.Altezza  * 1.16) ;
-        this.PesoIdeale = ((this.Altezza /100) * (this.Altezza/100)) * 20.6;
+
         this.Calorie = this.Calorie.toFixed(2);
+          var pesoIdeale = ((this.Altezza /100) * (this.Altezza/100)) * 20.6;
+            document.getElementById('pesoIdeale').innerHTML=pesoIdeale;
       }
 
       if (this.selected == 'poca') {
@@ -57,8 +62,8 @@ var app = new Vue({
        var bmi = this.Peso / ((this.Altezza /100) * (this.Altezza/100));
      var bmi =   bmi.toFixed(2);
      document.getElementById('bmi').innerHTML=bmi;
-      var pesodaaumentare = this.Peso - this.PesoIdeale;
-      var pesooo2 = (this.PesoIdeale * 2);
+      var pesodaaumentare = this.Peso - pesoIdeale;
+      var pesooo2 = (pesoIdeale * 2);
 
 
       var pesooo = (pesodaaumentare + pesooo2)/2;
@@ -95,7 +100,7 @@ var app = new Vue({
       this.Caloriemeno = this.Calorie - kcalingiorni;
       this.Calorieaumento = (this.Calorie + kcalingiorni);
 
-      if (this.PesoIdeale < this.Peso) {
+      if (pesoIdeale < this.Peso) {
         document.getElementById('pesodasistemare').innerHTML= 'perdere ' +  pesodaaumentare.toFixed(2)+ ' kg con un indice calorico pari a'+ this.Caloriemeno +' kcal per perdere'  +  pesodaaumentare.toFixed(2)+ ' kg in '+ xy + ' mesi';
         var percCarb = 0.35 * this.Caloriemeno;
         var percCarb =  percCarb.toFixed(2);
@@ -109,7 +114,7 @@ var app = new Vue({
         var percProte =  percProte.toFixed(2);
         document.getElementById('percProte').innerHTML=percProte;
 
-      }else if(this.PesoIdeale == this.Peso){
+      }else if(pesoIdeale == this.Peso){
         document.getElementById('pesodasistemare').innerHTML= 'seguire una diete che continui con un apporto calorico e attivita fisica uguale a quella che stai gia attuando,ottimoquindi ti consigliamo di seguire una dieta con indice calorico pari a'+ this.Calorie ;
         var percCarb = 0.35 * this.Calorie;
         var percCarb =  percCarb.toFixed(2);
@@ -132,7 +137,7 @@ var app = new Vue({
         var percProte =  percProte.toFixed(2);
         document.getElementById('percProte').innerHTML=percProte;
       }
-      this.PesoIdeale  = this.PesoIdeale .toFixed(2);
+      var pesoIdeale  = pesoIdeale .toFixed(2);
 
 
 
@@ -160,7 +165,7 @@ var app = new Vue({
           labels: [monthName,y, xy ],
           datasets: [{
             label: '# of Votes',
-            data: [this.Peso,pesooo, this.PesoIdeale],
+            data: [this.Peso,pesooo, pesoIdeale],
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
               'rgba(54, 162, 235, 0.2)',
@@ -220,13 +225,13 @@ var app = new Vue({
 
       if (this.Sesso == 'Uomo') {
         this.Calorie = (5 + (this.Peso * 10) + (this.Altezza * 6.25) - (this.Eta * 5));
-        this.PesoIdeale = ((this.Altezza /100) * (this.Altezza/100)) * 22.1;
+        var pesoIdeale = ((this.Altezza /100) * (this.Altezza/100)) * 22.1;
       } else if (this.Sesso == 'Donna') {
         this.Calorie = (-161 + (this.Peso * 10) + (this.Altezza * 6.25) - (this.Eta * 5));
-        this.PesoIdeale = ((this.Altezza /100) * (this.Altezza/100)) * 20.6;
+        var pesoIdeale = ((this.Altezza /100) * (this.Altezza/100)) * 20.6;
       } else {
         this.Calorie = 22.1 + (this.Peso  * 31.05 ) + (this.Altezza  * 1.16) ;
-        this.PesoIdeale = ((this.Altezza /100) * (this.Altezza/100)) * 20.6;
+        var pesoIdeale = ((this.Altezza /100) * (this.Altezza/100)) * 20.6;
       }
 
       if (this.selected == 'poca') {
@@ -241,7 +246,7 @@ var app = new Vue({
       }
 
 
-      if (this.PesoIdeale < this.Peso) {
+      if (pesoIdeale < this.Peso) {
 
         var percCarb = 0.35 * this.Caloriemeno;
         var percCarb =  percCarb.toFixed(2);
@@ -253,7 +258,7 @@ var app = new Vue({
         var percProte =  percProte.toFixed(2);
         document.getElementById('percProte').innerHTML=percProte;
 
-      }else if(this.PesoIdeale == this.Peso){
+      }else if(pesoIdeale == this.Peso){
 
         var percCarb = 0.35 * this.Calorie;
         var percCarb =  percCarb.toFixed(2);
