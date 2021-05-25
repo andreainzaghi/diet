@@ -73,20 +73,21 @@ var app = new Vue({
 
 
         if (x < 5) {
-        document.getElementById('pesocheaumenta').innerHTML= 'Consigliamo di perdere '+ x + 'in tre mesi per non accellerare il tuo metabolismo';
+        document.getElementById('pesocheaumenta').innerHTML= 'Consigliamo di perdere '+ x + ' kg in tre mesi per non accellerare il tuo metabolismo';
         xy=3;
       } else if (x > 5 && x < 10) {
-        document.getElementById('pesocheaumenta').innerHTML= 'Consigliamo di perdere '+ x + 'in sei mesi per non accellerare il tuo metabolismo';
+        document.getElementById('pesocheaumenta').innerHTML= 'Consigliamo di perdere '+ x + ' kg in sei mesi per non accellerare il tuo metabolismo';
           xy=6;
         } else if (x > 10 && x < 20) {
-        document.getElementById('pesocheaumenta').innerHTML= 'Consigliamo di perdere '+ x + 'in 12 mesi per non accellerare il tuo metabolismo';
+        document.getElementById('pesocheaumenta').innerHTML= 'Consigliamo di perdere '+ x + ' kg in 12 mesi per non accellerare il tuo metabolismo';
           xy=12;
         } else {
-        document.getElementById('pesocheaumenta').innerHTML= 'Consigliamo di perdere '+ x + 'in 18 mesi per non accellerare il tuo metabolismo';
+        document.getElementById('pesocheaumenta').innerHTML= 'Consigliamo di perdere '+ x + ' kg in 18 mesi per non accellerare il tuo metabolismo';
           xy=18;
         }
 
           var pesorazionatoingiorni = x/xy;
+          var y = xy / 2;
             var pesorazionatoingiorni  =  pesorazionatoingiorni.toFixed(2);
           document.getElementById('pesorazionatoingiorni').innerHTML=pesorazionatoingiorni;
           var kcalingiorni = pesorazionatoingiorni * 250 ;
@@ -100,6 +101,8 @@ var app = new Vue({
                document.getElementById('percCarb').innerHTML=percCarb;
              var percGrassi = 0.25 * this.Caloriemeno;
              var percGrassi =  percGrassi.toFixed(2);
+
+
                document.getElementById('percGrassi').innerHTML=percGrassi;
              var percProte = 0.4 * this.Caloriemeno;
              var percProte =  percProte.toFixed(2);
@@ -153,7 +156,7 @@ var app = new Vue({
           var myChart = new Chart(ctx, {
               type: 'line',
               data: {
-                  labels: [monthName, xy ],
+                  labels: [monthName,y, xy ],
                   datasets: [{
                       label: '# of Votes',
                       data: [this.Peso,pesooo, this.PesoIdeale],
@@ -261,7 +264,7 @@ var app = new Vue({
           var percProte =  percProte.toFixed(2);
             document.getElementById('percProte').innerHTML=percProte;
       }else {
-      
+
         var percCarb = 0.35 * this.Calorieaumento;
         var percCarb =  percCarb.toFixed(2);
           document.getElementById('percCarb').innerHTML=percCarb;
