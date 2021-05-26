@@ -74,21 +74,32 @@ var app = new Vue({
 
 
 
+
       var x = pesodaaumentare; x = Math.abs(x);
       var x  =  x.toFixed(2);
 
 
+
+            if (pesoIdeale < this.Peso) {
+            var perdere ='perdere';
+            }else if(pesoIdeale == this.Peso){
+              var perdere ='perdere';
+            }else {
+              var perdere ='aumentare';
+            }
+
+
       if (x < 5) {
-        document.getElementById('pesocheaumenta').innerHTML= 'Consigliamo di perdere '+ x + ' kg in tre mesi per non accellerare il tuo metabolismo';
+        document.getElementById('pesocheaumenta').innerHTML= 'Consigliamo di  ' + perdere + x + ' kg in tre mesi per non accellerare il tuo metabolismo';
         xy=3;
       } else if (x > 5 && x < 10) {
-        document.getElementById('pesocheaumenta').innerHTML= 'Consigliamo di perdere '+ x + ' kg in sei mesi per non accellerare il tuo metabolismo';
+        document.getElementById('pesocheaumenta').innerHTML= 'Consigliamo di  ' + perdere + x + ' kg in sei mesi per non accellerare il tuo metabolismo';
         xy=6;
       } else if (x > 10 && x < 20) {
-        document.getElementById('pesocheaumenta').innerHTML= 'Consigliamo di perdere '+ x + ' kg in 12 mesi per non accellerare il tuo metabolismo';
+        document.getElementById('pesocheaumenta').innerHTML= 'Consigliamo di  ' + perdere + x + ' kg in 12 mesi per non accellerare il tuo metabolismo';
         xy=12;
       } else {
-        document.getElementById('pesocheaumenta').innerHTML= 'Consigliamo di perdere '+ x + ' kg in 18 mesi per non accellerare il tuo metabolismo';
+        document.getElementById('pesocheaumenta').innerHTML= 'Consigliamo di  ' + perdere + x + ' kg in 18 mesi per non accellerare il tuo metabolismo';
         xy=18;
       }
 
@@ -108,8 +119,6 @@ var app = new Vue({
         document.getElementById('percCarb').innerHTML=percCarb;
         var percGrassi = 0.25 * this.Caloriemeno;
         var percGrassi =  percGrassi.toFixed(2);
-
-
         document.getElementById('percGrassi').innerHTML=percGrassi;
         var percProte = 0.4 * this.Caloriemeno;
         var percProte =  percProte.toFixed(2);

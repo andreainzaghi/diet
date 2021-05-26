@@ -60,10 +60,12 @@ main{
 }
 .tot-chilopage p{
   padding:10px;
+  text-align: right;
 }
 .secondsection{
   padding:20px;
 }
+
 /* sfondoinput */
 .sfondo1{
   background-image: url('../img/jos.jpg');
