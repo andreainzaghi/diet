@@ -51,7 +51,7 @@ var app = new Vue({
         this.Calorie = this.Calorie * 0.9  ;
         this.Calorie = this.Calorie.toFixed(2);
       } else if (this.selected == 'media') {
-        this.Calorie = this.Calorie ;
+        this.Calorie = this.Calorie * 1 ;
         this.Calorie = this.Calorie.toFixed(2);
       }  else  {
         this.Calorie = this.Calorie * 1.1 ;
