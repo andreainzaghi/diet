@@ -116,36 +116,36 @@ var app = new Vue({
         document.getElementById('pesodasistemare').innerHTML= 'perdere ' +  pesodaaumentare.toFixed(2)+ ' kg con un indice calorico pari a'+ this.Caloriemeno +' kcal per perdere'  +  pesodaaumentare.toFixed(2)+ ' kg in '+ xy + ' mesi';
         var percCarb = 0.35 * this.Caloriemeno;
         var percCarb =  percCarb.toFixed(2);
-        document.getElementById('percCarb').innerHTML=percCarb;
+
         var percGrassi = 0.25 * this.Caloriemeno;
         var percGrassi =  percGrassi.toFixed(2);
-        document.getElementById('percGrassi').innerHTML=percGrassi;
+
         var percProte = 0.4 * this.Caloriemeno;
         var percProte =  percProte.toFixed(2);
-        document.getElementById('percProte').innerHTML=percProte;
+
 
       }else if(pesoIdeale == this.Peso){
         document.getElementById('pesodasistemare').innerHTML= 'seguire una diete che continui con un apporto calorico e attivita fisica uguale a quella che stai gia attuando,ottimoquindi ti consigliamo di seguire una dieta con indice calorico pari a'+ this.Calorie ;
         var percCarb = 0.35 * this.Calorie;
         var percCarb =  percCarb.toFixed(2);
-        document.getElementById('percCarb').innerHTML=percCarb;
+
         var percGrassi = 0.25 * this.Calorie;
         var percGrassi =  percGrassi.toFixed(2);
-        document.getElementById('percGrassi').innerHTML=percGrassi;
+
         var percProte = 0.4 * this.Calorie;
         var percProte =  percProte.toFixed(2);
-        document.getElementById('percProte').innerHTML=percProte;
+
       }else {
         document.getElementById('pesodasistemare').innerHTML= 'aumentare  di ' + (-pesodaaumentare.toFixed(2))+ ' kg  con  un indice calorico pari a'+ this.Calorieaumento+' kcal per perdere'  +   (-pesodaaumentare.toFixed(2))+ ' kg in '+ xy + ' mesi' ;
         var percCarb = 0.35 * this.Calorieaumento;
         var percCarb =  percCarb.toFixed(2);
-        document.getElementById('percCarb').innerHTML=percCarb;
+
         var percGrassi = 0.25 * this.Calorieaumento;
         var percGrassi =  percGrassi.toFixed(2);
-        document.getElementById('percGrassi').innerHTML=percGrassi;
+
         var percProte = 0.4 * this.Calorieaumento;
         var percProte =  percProte.toFixed(2);
-        document.getElementById('percProte').innerHTML=percProte;
+
       }
       var pesoIdeale  = pesoIdeale .toFixed(2);
 
@@ -174,7 +174,7 @@ var app = new Vue({
         data: {
           labels: [monthName,y, xy ],
           datasets: [{
-            label: '# of Votes',
+            label: 'Kg',
             data: [this.Peso,pesooo, pesoIdeale],
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
@@ -260,36 +260,36 @@ var app = new Vue({
 
         var percCarb = 0.35 * this.Caloriemeno;
         var percCarb =  percCarb.toFixed(2);
-        document.getElementById('percCarb').innerHTML=percCarb;
+
         var percGrassi = 0.25 * this.Caloriemeno;
         var percGrassi =  percGrassi.toFixed(2);
-        document.getElementById('percGrassi').innerHTML=percGrassi;
+
         var percProte = 0.4 * this.Caloriemeno;
         var percProte =  percProte.toFixed(2);
-        document.getElementById('percProte').innerHTML=percProte;
+
 
       }else if(pesoIdeale == this.Peso){
 
         var percCarb = 0.35 * this.Calorie;
         var percCarb =  percCarb.toFixed(2);
-        document.getElementById('percCarb').innerHTML=percCarb;
+
         var percGrassi = 0.25 * this.Calorie;
         var percGrassi =  percGrassi.toFixed(2);
-        document.getElementById('percGrassi').innerHTML=percGrassi;
+
         var percProte = 0.4 * this.Calorie;
         var percProte =  percProte.toFixed(2);
-        document.getElementById('percProte').innerHTML=percProte;
+
       }else {
 
         var percCarb = 0.35 * this.Calorieaumento;
         var percCarb =  percCarb.toFixed(2);
-        document.getElementById('percCarb').innerHTML=percCarb;
+
         var percGrassi = 0.25 * this.Calorieaumento;
         var percGrassi =  percGrassi.toFixed(2);
-        document.getElementById('percGrassi').innerHTML=percGrassi;
+
         var percProte = 0.4 * this.Calorieaumento;
         var percProte =  percProte.toFixed(2);
-        document.getElementById('percProte').innerHTML=percProte;
+
       }
 
       let myChart = document.getElementById('myChart1').getContext('2d');
@@ -302,7 +302,7 @@ var app = new Vue({
       let massPopChart = new Chart(myChart1, {
         type:'pie', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
         data:{
-          labels:[' 40% carboidrati', ' 25% grassi', ' 35% proteine' ],
+          labels:[' 40% carboidrati ' + percCarb +' Kcal', ' 25% grassi ' + percGrassi +' Kcal', ' 35% proteine ' + percProte +' Kcal'],
           datasets:[{
             label:'Population',
             data:[
@@ -322,7 +322,7 @@ var app = new Vue({
             ],
             borderWidth:1,
             borderColor:'#777',
-            hoverBorderWidth:3,
+            hoverBorderWidth:1,
             hoverBorderColor:'#000'
           }]
         },
@@ -334,7 +334,7 @@ var app = new Vue({
           },
           legend:{
             display:true,
-            position:'right',
+            position:'center',
             labels:{
               fontColor:'#000'
             }
