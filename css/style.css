@@ -67,7 +67,11 @@ main{
 /* sfondoinput */
 .sfondo1{
   background-image: url('../img/jos.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .sfondo2{
   background-image: url('../img/bianca.png');
+    background-repeat: no-repeat;
+    background-size: cover;
 }

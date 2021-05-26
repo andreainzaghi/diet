@@ -24,7 +24,22 @@ var app = new Vue({
   },
 
 
+
   methods:{
+    // sfondoUomo:function(){
+    //   if (this.Sesso == 'Uomo') {
+    //     this.sfondo ='sfondo1';
+    //   }else {
+    //     this.sfondo ='sfondo2';
+    //   }
+    // },
+    // sfondoDonna:function(){
+    //   if (this.Sesso == 'Donna') {
+    //     this.sfondo ='sfondo2';
+    //   }else {
+    //     this.sfondo ='sfondo1';
+    //   }
+    // },
     Prova:function(){
 
 
@@ -102,7 +117,7 @@ var app = new Vue({
       document.getElementById('pesorazionatoingiorni').innerHTML=pesorazionatoingiorni;
       var kcalingiorni = pesorazionatoingiorni * 250 ;
       this.Caloriemeno = this.Calorie - kcalingiorni;
-      this.Calorieaumento = (this.Calorie + kcalingiorni);
+    var calorieaumento = (this.Calorie + kcalingiorni);
 
       if (pesoIdeale < this.Peso) {
         document.getElementById('pesodasistemare').innerHTML= 'perdere ' +  pesodaaumentare.toFixed(2)+ ' kg con un indice calorico pari a'+ this.Caloriemeno +' kcal per perdere'  +  pesodaaumentare.toFixed(2)+ ' kg in '+ xy + ' mesi';
@@ -111,8 +126,6 @@ var app = new Vue({
         document.getElementById('percCarb').innerHTML=percCarb;
         var percGrassi = 0.25 * this.Caloriemeno;
         var percGrassi =  percGrassi.toFixed(2);
-
-
         document.getElementById('percGrassi').innerHTML=percGrassi;
         var percProte = 0.4 * this.Caloriemeno;
         var percProte =  percProte.toFixed(2);
@@ -130,14 +143,14 @@ var app = new Vue({
         var percProte =  percProte.toFixed(2);
         document.getElementById('percProte').innerHTML=percProte;
       }else {
-        document.getElementById('pesodasistemare').innerHTML= 'aumentare  di ' + (-pesodaaumentare.toFixed(2))+ ' kg  con  un indice calorico pari a'+ this.Calorieaumento+' kcal per perdere'  +   (-pesodaaumentare.toFixed(2))+ ' kg in '+ xy + ' mesi' ;
-        var percCarb = 0.35 * this.Calorieaumento;
+        document.getElementById('pesodasistemare').innerHTML= 'aumentare  di ' + (-pesodaaumentare.toFixed(2))+ ' kg  con  un indice calorico pari a'+ calorieaumento+' kcal per perdere'  +   (-pesodaaumentare.toFixed(2))+ ' kg in '+ xy + ' mesi' ;
+        var percCarb = 0.35 * calorieaumento;
         var percCarb =  percCarb.toFixed(2);
         document.getElementById('percCarb').innerHTML=percCarb;
-        var percGrassi = 0.25 * this.Calorieaumento;
+        var percGrassi = 0.25 * calorieaumento;
         var percGrassi =  percGrassi.toFixed(2);
         document.getElementById('percGrassi').innerHTML=percGrassi;
-        var percProte = 0.4 * this.Calorieaumento;
+        var percProte = 0.4 * calorieaumento;
         var percProte =  percProte.toFixed(2);
         document.getElementById('percProte').innerHTML=percProte;
       }
@@ -225,6 +238,9 @@ var app = new Vue({
       // })
     },
     Prova1:function(){
+      var kcalingiorni = pesorazionatoingiorni * 250 ;
+    
+     var calorieaumento = (this.Calorie + kcalingiorni);
 
 
       if (this.Sesso == 'Uomo') {
@@ -275,13 +291,13 @@ var app = new Vue({
         document.getElementById('percProte').innerHTML=percProte;
       }else {
 
-        var percCarb = 0.35 * this.Calorieaumento;
+        var percCarb = 0.35 * calorieaumento;
         var percCarb =  percCarb.toFixed(2);
         document.getElementById('percCarb').innerHTML=percCarb;
-        var percGrassi = 0.25 * this.Calorieaumento;
+        var percGrassi = 0.25 * calorieaumento;
         var percGrassi =  percGrassi.toFixed(2);
         document.getElementById('percGrassi').innerHTML=percGrassi;
-        var percProte = 0.4 * this.Calorieaumento;
+        var percProte = 0.4 * calorieaumento;
         var percProte =  percProte.toFixed(2);
         document.getElementById('percProte').innerHTML=percProte;
       }
@@ -348,20 +364,7 @@ var app = new Vue({
       });
 
     },
-    sfondoUomo:function(){
-      if (this.sfondo == 'sfondo1') {
-        this.sfondo ='sfondo1';
-      }else {
-        this.sfondo ='sfondo2';
-      }
-    },
-    sfondoDonna:function(){
-      if (this.sfondo == 'sfondo1') {
-        this.sfondo ='sfondo2';
-      }else {
-        this.sfondo ='sfondo1';
-      }
-    },
+
 
     // outer grafico ciambella
 

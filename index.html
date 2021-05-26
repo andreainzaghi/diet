@@ -33,14 +33,14 @@
     <img src="img/llogoo.png" alt="">
   </header>
   <main>
-    <div class="input" id="app" :class="sfondo">
+    <div class="input" id="app">
         <!-- input -->
         <div class="input-generalita">
           <div class="select">
             <select name="sexo"  v-model="Sesso">
               <option  value="">Bambino 1-5 anni</option>
-              <option @click="sfondoUomo" value="uomo">Uomo</option>
-              <option  @click="sfondoDonna" value="donna">Donna</option>
+              <option  value="Uomo">Uomo</option>
+              <option   value="Donna">Donna</option>
             </select>
           </div>
           <div class="input-peso">
