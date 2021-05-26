@@ -238,9 +238,7 @@ var app = new Vue({
       // })
     },
     Prova1:function(){
-      var kcalingiorni = pesorazionatoingiorni * 250 ;
-    
-     var calorieaumento = (this.Calorie + kcalingiorni);
+
 
 
       if (this.Sesso == 'Uomo') {
@@ -266,6 +264,32 @@ var app = new Vue({
       }
 
 
+
+      var x = pesodaaumentare; x = Math.abs(x);
+      var x  =  x.toFixed(2);
+
+
+      if (x < 5) {
+
+        xy=3;
+      } else if (x > 5 && x < 10) {
+
+        xy=6;
+      } else if (x > 10 && x < 20) {
+
+        xy=12;
+      } else {
+      
+        xy=18;
+      }
+
+      var pesorazionatoingiorni = x/xy;
+      var y = xy / 2;
+      var pesorazionatoingiorni  =  pesorazionatoingiorni.toFixed(2);
+      var kcalingiorni = pesorazionatoingiorni * 250 ;
+
+     var calorieaumento = (this.Calorie + kcalingiorni);
+     console.log(calorieaumento);
       if (pesoIdeale < this.Peso) {
 
         var percCarb = 0.35 * this.Caloriemeno;
