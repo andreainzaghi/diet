@@ -13,7 +13,7 @@ var app = new Vue({
     selected: null,
     Caloriemeno:null,
     Calorieaumento:null,
-    sfondo:'sfondo1',
+
     PesoIdeale:null,
     pesooo:null
 
@@ -24,22 +24,7 @@ var app = new Vue({
   },
 
 
-
   methods:{
-    // sfondoUomo:function(){
-    //   if (this.Sesso == 'Uomo') {
-    //     this.sfondo ='sfondo1';
-    //   }else {
-    //     this.sfondo ='sfondo2';
-    //   }
-    // },
-    // sfondoDonna:function(){
-    //   if (this.Sesso == 'Donna') {
-    //     this.sfondo ='sfondo2';
-    //   }else {
-    //     this.sfondo ='sfondo1';
-    //   }
-    // },
     Prova:function(){
 
 
@@ -48,14 +33,12 @@ var app = new Vue({
         this.Calorie = this.Calorie.toFixed(2);
         var pesoIdeale = ((this.Altezza /100) * (this.Altezza/100)) * 22.1;
         document.getElementById('pesoIdeale').innerHTML=pesoIdeale;
-
       } else if (this.Sesso == 'Donna') {
         this.Calorie = (-161 + (this.Peso * 10) + (this.Altezza * 6.25) - (this.Eta * 5));
 
         this.Calorie = this.Calorie.toFixed(2);
           var pesoIdeale = ((this.Altezza /100) * (this.Altezza/100)) * 20.6;
             document.getElementById('pesoIdeale').innerHTML=pesoIdeale;
-            this.sfondo ='sfondo2';
       } else {
         this.Calorie = 22.1 + (this.Peso  * 31.05 ) + (this.Altezza  * 1.16) ;
 
@@ -63,8 +46,6 @@ var app = new Vue({
           var pesoIdeale = ((this.Altezza /100) * (this.Altezza/100)) * 20.6;
             document.getElementById('pesoIdeale').innerHTML=pesoIdeale;
       }
-
-
 
       if (this.selected == 'poca') {
         this.Calorie = this.Calorie * 0.9  ;
@@ -117,7 +98,8 @@ var app = new Vue({
       document.getElementById('pesorazionatoingiorni').innerHTML=pesorazionatoingiorni;
       var kcalingiorni = pesorazionatoingiorni * 250 ;
       this.Caloriemeno = this.Calorie - kcalingiorni;
-    var calorieaumento = (this.Calorie + kcalingiorni);
+      this.Calorieaumento = (this.Caloriemeno + (kcalingiorni * 2));
+
 
       if (pesoIdeale < this.Peso) {
         document.getElementById('pesodasistemare').innerHTML= 'perdere ' +  pesodaaumentare.toFixed(2)+ ' kg con un indice calorico pari a'+ this.Caloriemeno +' kcal per perdere'  +  pesodaaumentare.toFixed(2)+ ' kg in '+ xy + ' mesi';
@@ -126,6 +108,8 @@ var app = new Vue({
         document.getElementById('percCarb').innerHTML=percCarb;
         var percGrassi = 0.25 * this.Caloriemeno;
         var percGrassi =  percGrassi.toFixed(2);
+
+
         document.getElementById('percGrassi').innerHTML=percGrassi;
         var percProte = 0.4 * this.Caloriemeno;
         var percProte =  percProte.toFixed(2);
@@ -143,14 +127,14 @@ var app = new Vue({
         var percProte =  percProte.toFixed(2);
         document.getElementById('percProte').innerHTML=percProte;
       }else {
-        document.getElementById('pesodasistemare').innerHTML= 'aumentare  di ' + (-pesodaaumentare.toFixed(2))+ ' kg  con  un indice calorico pari a'+ calorieaumento+' kcal per perdere'  +   (-pesodaaumentare.toFixed(2))+ ' kg in '+ xy + ' mesi' ;
-        var percCarb = 0.35 * calorieaumento;
+        document.getElementById('pesodasistemare').innerHTML= 'aumentare  di ' + (-pesodaaumentare.toFixed(2))+ ' kg  con  un indice calorico pari a'+ this.Calorieaumento+' kcal per perdere'  +   (-pesodaaumentare.toFixed(2))+ ' kg in '+ xy + ' mesi' ;
+        var percCarb = 0.35 * this.Calorieaumento;
         var percCarb =  percCarb.toFixed(2);
         document.getElementById('percCarb').innerHTML=percCarb;
-        var percGrassi = 0.25 * calorieaumento;
+        var percGrassi = 0.25 * this.Calorieaumento;
         var percGrassi =  percGrassi.toFixed(2);
         document.getElementById('percGrassi').innerHTML=percGrassi;
-        var percProte = 0.4 * calorieaumento;
+        var percProte = 0.4 * this.Calorieaumento;
         var percProte =  percProte.toFixed(2);
         document.getElementById('percProte').innerHTML=percProte;
       }
@@ -240,7 +224,6 @@ var app = new Vue({
     Prova1:function(){
 
 
-
       if (this.Sesso == 'Uomo') {
         this.Calorie = (5 + (this.Peso * 10) + (this.Altezza * 6.25) - (this.Eta * 5));
         var pesoIdeale = ((this.Altezza /100) * (this.Altezza/100)) * 22.1;
@@ -264,32 +247,6 @@ var app = new Vue({
       }
 
 
-
-      var x = pesodaaumentare; x = Math.abs(x);
-      var x  =  x.toFixed(2);
-
-
-      if (x < 5) {
-
-        xy=3;
-      } else if (x > 5 && x < 10) {
-
-        xy=6;
-      } else if (x > 10 && x < 20) {
-
-        xy=12;
-      } else {
-      
-        xy=18;
-      }
-
-      var pesorazionatoingiorni = x/xy;
-      var y = xy / 2;
-      var pesorazionatoingiorni  =  pesorazionatoingiorni.toFixed(2);
-      var kcalingiorni = pesorazionatoingiorni * 250 ;
-
-     var calorieaumento = (this.Calorie + kcalingiorni);
-     console.log(calorieaumento);
       if (pesoIdeale < this.Peso) {
 
         var percCarb = 0.35 * this.Caloriemeno;
@@ -315,13 +272,13 @@ var app = new Vue({
         document.getElementById('percProte').innerHTML=percProte;
       }else {
 
-        var percCarb = 0.35 * calorieaumento;
+        var percCarb = 0.35 * this.Calorieaumento;
         var percCarb =  percCarb.toFixed(2);
         document.getElementById('percCarb').innerHTML=percCarb;
-        var percGrassi = 0.25 * calorieaumento;
+        var percGrassi = 0.25 * this.Calorieaumento;
         var percGrassi =  percGrassi.toFixed(2);
         document.getElementById('percGrassi').innerHTML=percGrassi;
-        var percProte = 0.4 * calorieaumento;
+        var percProte = 0.4 * this.Calorieaumento;
         var percProte =  percProte.toFixed(2);
         document.getElementById('percProte').innerHTML=percProte;
       }
@@ -387,8 +344,7 @@ var app = new Vue({
         }
       });
 
-    },
-
+    }
 
     // outer grafico ciambella
 
@@ -405,7 +361,6 @@ var app = new Vue({
   this.i++;
 }
 while ((RProte+RGrassi+RCarb)==this.Calorie);
-
 if ((RProte+RGrassi+RCarb)==this.Calorie) {
 document.getElementById(randomPRG).innerHTML='RProte'+'RGrassi'+'RCarb';
 }
